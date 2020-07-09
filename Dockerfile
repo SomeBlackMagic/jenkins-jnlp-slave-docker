@@ -21,5 +21,6 @@ RUN set -eux \
     && tar zxvf /tmp/rancher-linux-amd64-v2.4.5.tar.gz --strip-components=2 -C /usr/local/bin ./rancher-v2.4.5/rancher \
     && true
 
+ADD daemon.json /etc/docker/daemon.json
 
 USER jenkins
