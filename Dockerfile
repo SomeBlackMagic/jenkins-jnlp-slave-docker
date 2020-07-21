@@ -21,6 +21,8 @@ RUN set -eux \
     && tar zxvf /tmp/rancher-linux-amd64-v2.4.5.tar.gz --strip-components=2 -C /usr/local/bin ./rancher-v2.4.5/rancher \
     && true
 
-ADD daemon.json /etc/docker/daemon.json
+COPY daemon.json /etc/docker/daemon.json
+RUN usermod -aG docker jenkins
 
-USER jenkins
+COPY jenkins-slave.sh /usr/local/bin/jenkins-slave
+ENTRYPOINT ["/usr/local/bin/jenkins-slave"]
