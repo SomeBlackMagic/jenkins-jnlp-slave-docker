@@ -1,4 +1,4 @@
-FROM jenkins/jnlp-slave:3.27-1
+FROM jenkins/inbound-agent:3.27-1
 USER root
 #RUN apt update && apt install sudo
 # Install docker client, kubectl and helm
