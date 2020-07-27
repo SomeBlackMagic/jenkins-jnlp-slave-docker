@@ -38,4 +38,7 @@ COPY daemon.json /etc/docker/daemon.json
 RUN usermod -aG docker jenkins
 
 COPY jenkins-slave.sh /usr/local/bin/jenkins-slave
+ADD daemon.json /etc/docker/daemon.json
+
+USER jenkins
 ENTRYPOINT ["/usr/local/bin/jenkins-slave"]
