@@ -21,6 +21,7 @@ RUN set -eux \
     && curl https://get.helm.sh/helm-v3.2.4-linux-amd64.tar.gz > helm-v3.2.4-linux-amd64.tar.gz \
     && tar -zxvf helm-v3.2.4-linux-amd64.tar.gz \
     && mv linux-amd64/helm /usr/local/bin/helm \
+    %% helm plugin install https://github.com/chartmuseum/helm-push.git \
     && true
 
 
